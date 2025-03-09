@@ -12,6 +12,9 @@ public class ListaTareas {
     }
 
     public void agregarTarea(String descripcion, Date fechaVencimiento) {
+        if (descripcion == null || descripcion.trim().isEmpty()) {
+            throw new IllegalArgumentException("La descripción no puede estar vacía.");
+        }
         tareas.add(new Tarea(descripcion, fechaVencimiento));
     }
 
@@ -29,10 +32,6 @@ public class ListaTareas {
     }
 
     public List<Tarea> obtenerTareas() {
-        return tareas;
-    }
-
-    public void agregarTarea(String descripcionTarea) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return new ArrayList<>(tareas);
     }
 }

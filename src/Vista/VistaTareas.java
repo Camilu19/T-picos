@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 import Modelo.Tarea;
 import Modelo.ListaTareas;
 
-// Importar librerías externas
+// Importa librerías externas
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.CellConstraints;
 import org.jdatepicker.JDateComponentFactory;
@@ -29,8 +29,8 @@ public class VistaTareas extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
-        // Usar FormLayout de JGoodies
-        JPanel panelSuperior = new JPanel(new FormLayout("right:pref, 10px, fill:pref:grow", "p, p"));
+    
+        JPanel panelSuperior = new JPanel(new FormLayout("right:pref, 10px, fill:pref:grow", "p, p, p"));
         CellConstraints cc = new CellConstraints();
 
         campoTextoTarea = new JTextField(20);
@@ -38,17 +38,15 @@ public class VistaTareas extends JFrame {
 
         panelSuperior.add(new JLabel("Tarea:"), cc.xy(1, 1));
         panelSuperior.add(campoTextoTarea, cc.xy(3, 1));
-        panelSuperior.add(botonAgregar, cc.xy(3, 2));
 
-        // Configurar JDatePicker para la selección de fechas
+        // JDatePicker para seleccionar fechas
         selectorFecha = new JDateComponentFactory().createJDatePicker();
         selectorFecha.setTextEditable(false);
-        selectorFecha.setShowYearButtons(false);
-        
-        /*
+        selectorFecha.setShowYearButtons(true);
         panelSuperior.add(new JLabel("Fecha de Vencimiento:"), cc.xy(1, 2));
         panelSuperior.add((Component) selectorFecha, cc.xy(3, 2));
-        */
+
+        panelSuperior.add(botonAgregar, cc.xy(3, 3));
 
         modeloLista = new DefaultListModel<>();
         listaTareas = new JList<>(modeloLista);
@@ -109,4 +107,3 @@ public class VistaTareas extends JFrame {
         return null;
     }
 }
-

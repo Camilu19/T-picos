@@ -31,12 +31,12 @@ public class ControladorTareas {
                 JOptionPane.showMessageDialog(vista, "La descripción de la tarea no puede estar vacía.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            /*
+            
             if (fechaVencimiento == null) {
                 JOptionPane.showMessageDialog(vista, "Seleccione una fecha válida.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            */
+            
             modelo.agregarTarea(descripcionTarea, fechaVencimiento);
             vista.limpiarEntrada();
             vista.actualizarListaTareas(modelo.obtenerTareas());
@@ -68,3 +68,4 @@ public class ControladorTareas {
         }
     }
 }
+
